@@ -104,3 +104,31 @@ The backend is structured using controllers to manage the different functionalit
 ## Conclusion
 
 This backend setup serves as the foundation for the Sarathi mentoring platform, user authentication, and session management.
+const answers = [
+    "Are you sure?",
+    "Are you really sure??",
+    "Are you positive???",
+    "Houssein is asking nicely...",
+    "Pwease ena houssein",
+    "Just think about it",
+    "If you say no, Houssein will be very sad",
+    "I will be very very sad",
+    "I will be very very very sad",
+    "Ok fine, Houssein will stop asking...",
+    "Just kidding, PLEASE SAY YES ❤️"
+];
+
+let messageIndex = 0;
+
+function handleNoClick() {
+    const noButton = document.querySelector('.no-button');
+    const yesButton = document.querySelector('.yes-button');
+    noButton.textContent = answers[messageIndex];
+    messageIndex = (messageIndex + 1) % answers.length;
+    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+}
+
+function handleYesClick() {
+    window.location.href = "yes_page.html";
+}
